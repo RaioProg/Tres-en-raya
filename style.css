@@ -1,0 +1,69 @@
+body{
+    background-color: #0c0b0b;
+    font-family: "Oi", serif;
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+}
+
+h1{
+    font-family: "Oi", serif;
+    font-style: normal;
+    text-align: center;
+    font-size: 4.5rem;
+    font-weight: 350;
+    color: #ffffffc2;
+}
+.highlight{
+    text-decoration: underline;
+    font-size: 3.5rem;
+}
+.container{
+    display:grid;
+    grid-template-columns: repeat(3, 200px);
+    justify-content: center;
+
+    margin: 0 auto;
+    margin-top: 50px;
+    gap: 8px;
+    position: relative;
+    z-index: 0;
+}
+.cell{
+    background-color: #f0f0f09d;
+    border: 1px solid #555555;
+    aspect-ratio: 1/1;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    font-family: "Moirai One", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 8rem;
+}
+.cell:hover{
+    background-color: #cfcfcf;
+    transition: 0.2s ease-in-out;
+}
+.panel{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: 350px auto;
+    width: 700px;
+    height: 400px;
+    background-color: #f0f0f0;
+    opacity: 0.8;
+    z-index: 1;
+}
+.main-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.oculto{
+    display: none;
+}
