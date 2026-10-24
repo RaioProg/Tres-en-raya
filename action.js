@@ -1,11 +1,15 @@
 let currentPlayer = 'X';
 let rivalPlayer = 'O';
-let rivalIndex = Math.floor(Math.random() * 8);
 let gameActive = true;
+let modoJuego = 3;
 const cells = document.querySelectorAll('.cell');
-const gameBoard = ['', '', '', '', '', '', '', '', ''];
+let gameBoard = ['', '', '', '', '', '', '', '', ''];
 const resetButton = document.querySelector('.reset');
-const winningCombinations = [
+const container = document.querySelector('.container');
+const boton4 = document.getElementById('cambio4');
+
+
+const winningCombinations3 = [
         [0, 1, 2],
         [3, 4, 5],
         [6, 7, 8],
@@ -29,10 +33,15 @@ cells.forEach((cell, index) => {
 }) })
 
 resetButton.addEventListener('click', resetGame);
+boton4.addEventListener('click', Cambio4);
+
+function Cambio4() {
+    container.innerHTML('<div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>');
+}
 
 
 function turnoRival() {
-    for(const [a, b, c] of winningCombinations) {
+    for(const [a, b, c] of winningCombinations3) {
         if (gameActive !== true) return;
         if (gameBoard[a] === rivalPlayer && gameBoard[b] === rivalPlayer && gameBoard[c] === '') {
             gameBoard[c] = rivalPlayer;
@@ -78,9 +87,11 @@ function turnoRival() {
 }
 
 function NoPasaNada() {
-    let rivalIndex = Math.floor(Math.random() * 9);
-
-    if (gameBoard[rivalIndex] === 'O' || gameBoard[rivalIndex] === 'X') {
+    let rivalIndex = Math.floor(Math.random() * 8);
+    if (gameBoard[4] === '') {
+        gameBoard[4] = rivalPlayer;
+        cells[4].textContent = rivalPlayer;
+    }else if (gameBoard[rivalIndex] === 'O' || gameBoard[rivalIndex] === 'X') {
         NoPasaNada();
     }else if(gameBoard[rivalIndex] === '') { 
         gameBoard[rivalIndex] = rivalPlayer;
@@ -89,7 +100,7 @@ function NoPasaNada() {
 
 function checkWinner() {
     
-    for (const [a, b, c] of winningCombinations) {
+    for (const [a, b, c] of winningCombinations3) {
         if (gameBoard[a] && gameBoard[a] === gameBoard[b] && gameBoard[a] === gameBoard[c]) {
             document.querySelector('.panel').classList.remove('oculto');
             document.querySelector('.result-text').textContent = `Player ${gameBoard[a]} wins!`;

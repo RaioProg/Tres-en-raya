@@ -1,6 +1,6 @@
 body{
     background-color: #0c0b0b;
-    font-family: "Oi", serif;
+
     margin: 0;
     height: 100vh;
     width: 100vw;
@@ -22,7 +22,6 @@ h1{
     display:grid;
     grid-template-columns: repeat(3, 200px);
     justify-content: center;
-
     margin: 0 auto;
     margin-top: 50px;
     gap: 8px;
@@ -33,14 +32,17 @@ h1{
     background-color: #f0f0f09d;
     border: 1px solid #555555;
     aspect-ratio: 1/1;
-    align-items: center;
     display: flex;
+    font-family: "Inter", sans-serif;
+    align-items: center;
     justify-content: center;
-    font-family: "Moirai One", system-ui;
-    font-weight: 400;
-    font-style: normal;
+    padding: 0;
+    font-weight: 200;
+    font-style:normal;
     font-size: 8rem;
 }
+
+
 .cell:hover{
     background-color: #cfcfcf;
     transition: 0.2s ease-in-out;
@@ -57,6 +59,7 @@ h1{
     background-color: #f0f0f0;
     opacity: 0.8;
     z-index: 1;
+
 }
 .main-container{
     display: flex;
@@ -66,4 +69,31 @@ h1{
 }
 .oculto{
     display: none;
+}
+.result-text{
+    font-family: "Oi", serif;
+    font-weight: 100;
+    font-size: 3.5rem;
+    opacity: 1;
+}
+.result{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+section.result button{
+    margin:8px;
+    border: none;
+}
+.modo3{
+    grid-template-columns: repeat(3, 200px);
+}
+.modo4{
+    grid-template-columns: repeat(4, 200px);
+}
+.modo5{
+    grid-template-columns: repeat(5, 200px);
 }
