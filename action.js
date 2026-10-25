@@ -5,7 +5,6 @@ let modoJuego = 3;
 const cells = document.querySelectorAll('.cell');
 let gameBoard = ['', '', '', '', '', '', '', '', ''];
 const resetButton = document.querySelector('.reset');
-const container = document.querySelector('.container');
 const boton4 = document.getElementById('cambio4');
 
 
@@ -20,6 +19,35 @@ const winningCombinations3 = [
         [2, 4, 6]
     ];
 
+const winningCombinations4 = [
+    [0, 1, 2, 3],
+    [4, 5, 6, 7],
+    [8, 9, 10, 11],
+    [12, 13, 14, 15],
+    [0, 4, 8, 12],
+    [1, 5, 9, 13],
+    [2, 6, 10, 14],
+    [3, 7, 11, 15],
+    [0, 5, 10, 15],
+    [3, 6, 9, 12]
+];
+
+const winningCombinations5 = [
+    [0, 1, 2, 3, 4],
+    [5, 6, 7, 8, 9],
+    [10, 11, 12, 13, 14],
+    [15, 16, 17, 18, 19],
+    [20, 21, 22, 23, 24],
+    [0, 5, 10, 15, 20],
+    [1, 6, 11, 16, 21],
+    [2, 7, 12, 17, 22],
+    [3, 8, 13, 18, 23],
+    [4, 9, 14, 19, 24],
+    [0, 6, 12, 18, 24],
+    [4, 8, 12, 16, 20]
+];
+
+
 cells.forEach((cell, index) => {
     cell.addEventListener('click', (event) => {
         if (gameActive !== true) return;
@@ -33,11 +61,21 @@ cells.forEach((cell, index) => {
 }) })
 
 resetButton.addEventListener('click', resetGame);
-boton4.addEventListener('click', Cambio4);
+boton4.addEventListener('click', () => {
+    const container = document.querySelector('.container');
+    container.style.gridTemplateColumns = 'repeat(4, 150px)';
+    container.innerHTML = '<div class="cell"></div>'.repeat(16);
+    modoJuego = 4;
 
-function Cambio4() {
-    container.innerHTML('<div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>');
-}
+
+    if (modoJuego = 4) {
+        container.style.gridTemplateColumns = ' repeat(3, 200px)';
+        container.innerHTML = '<div class="cell"></div>'.repeat(9);
+        modoJuego = 3
+    }
+});
+º
+
 
 
 function turnoRival() {
