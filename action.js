@@ -5,7 +5,8 @@ let modoJuego = 3;
 const cells = document.querySelectorAll('.cell');
 let gameBoard = ['', '', '', '', '', '', '', '', ''];
 const resetButton = document.querySelector('.reset');
-const boton4 = document.getElementById('cambio4');
+const boton4 = document.querySelector('.modo4');
+const container = document.querySelector('.container');
 
 
 const winningCombinations3 = [
@@ -57,28 +58,25 @@ cells.forEach((cell, index) => {
         cell.textContent = currentPlayer;
 
         checkWinner();
-        turnoRival();
+        turnoRival3();
 }) })
 
 resetButton.addEventListener('click', resetGame);
 boton4.addEventListener('click', () => {
-    const container = document.querySelector('.container');
-    container.style.gridTemplateColumns = 'repeat(4, 150px)';
-    container.innerHTML = '<div class="cell"></div>'.repeat(16);
-    modoJuego = 4;
-
-
-    if (modoJuego = 4) {
-        container.style.gridTemplateColumns = ' repeat(3, 200px)';
-        container.innerHTML = '<div class="cell"></div>'.repeat(9);
-        modoJuego = 3
-    }
+    document.querySelector('modo4').innerHTML = '4<span class="highlight">inLine</span>';
+    gameActive = true;
+    document.querySelector('.panel').classList.add('oculto');
+    crearTablero(4);
 });
-º
 
 
+function crearTablero(numerof) {
+    gameBoard = [""].repeat(numerof);
+    container.innerHTML('<div "cell"></div>'.repeat(numerof))
+}
 
-function turnoRival() {
+
+function turnoRival3() {
     for(const [a, b, c] of winningCombinations3) {
         if (gameActive !== true) return;
         if (gameBoard[a] === rivalPlayer && gameBoard[b] === rivalPlayer && gameBoard[c] === '') {
